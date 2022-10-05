@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarUsuario";
+    Layout = "_LayoutSGPI";
+}
+
+<h1>Buscar Usuario</h1>
+<br/>
+<form action="" class="form-inline justify-content-center">
+<center>
+<ul class="nav nav-pills" class="form">
+    <li class="nav-item">
+                <a class="nav-link   "href="/Administrador/CrearUsuario">Crear Usuario</a>
+    </li>
+    <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="#">Buscar Usuario </a>
+    </li>
+    <li class="nav-item">
+                <a class="nav-link" href="/Administrador/EliminarUsuario">Eliminar Usuario</a>
+    </li>
+    <li class="nav-item">
+                <a class="nav-link" href="/Administrador/EditarUsuario">Editar Usuario</a>
+    </li>
+    <li class="nav-item">
+                <a class="nav-link" href="/Administrador/Reportes">Reportes</a>
+    </li>
+</ul>
+</center>
+</form>
+<br/>
+<label>Buscar Usuario</label>
+<br />
+<center>
+    <center>
+        <div class="input-group">
+            <br/>
+            <input type="text" class="form-control col-sm-3" id="nombreusuariotxt" required />
+
+            <a href="/Administrador/CrearUsuario"<button type="submit" class="btn btn-primary mb-3">buscar</button></a>
+        </div>
+            <br/>
+    </center>
+    <table border="5">
+        <tr>
+            <td>Nombre </td>
+            <td> Apellido </td>
+            <td> Genero  </td>
+            <td> Documento </td>
+            <td>Programa</td>
+            <td>Rol</td>
+            <td>Correo</td>
+
+        <tr>
+            <td><input type="text" class="form-control col-sm-4" id="nombretxt" requiered /> </td>
+            <td><input type="text" id="num" /> </td>
+            <td><input type="text" id="num" /> </td>
+            <td><input type="text" id="num" /> </td>
+            <td><input type="text" id="num" /> </td>
+            <td><input type="text" id="num" /> </td>
+            <td><input type="text" id="num" /> </td>
+            
+            
+
+
+        <tr>
+
+
+
+    </table>
+    <br/>
+
+    <a href="/Administrador/Login"<button type="button" class="btn btn-link">Cerrar sesion</button> </a>
+
+ 
+
+</center>

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "EliminarUsuario";
+    Layout = "_LayoutSGPI";
+}
+
+<h1>Eliminar Usuario</h1>
+<br />
+
+<form action="" class="form-inline justify-content-center">
+    <center>
+        <ul class="nav nav-pills" class="form">
+            <li class="nav-item">
+                <a class="nav-link  " href="#">Crear Usuario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Administrador/BuscarUsuario">Buscar Usuario </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/Administrador/EliminarUsuario">Eliminar Usuario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Administrador/EditarUsuario">Editar Usuario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Administrador/Reportes">Reportes</a>
+            </li>
+        </ul>
+    </center>
+</form>
+<br/>
+<label>Buscar Usuario</label>
+
+    <center>
+        <div class="input-group">
+            <br />
+            <input type="text" class="form-control col-sm-3" id="nombreusuariotxt" required />
+
+            <button type="submit" class="btn btn-primary mb-3">buscar</button>
+        </div>
+        <br />
+    </center>
+    <table border="5">
+        <tr>
+            <td colspan="2">Nombre </td>
+            <td colspan ="2"> Apellido </td>
+            <td colspan="2"> Genero  </td>
+            <td colspan="2"> Documento </td>
+            <td colspan="2">Programa</td>
+            <td colspan="2">Rol</td>
+            <td colspan="2">Correo</td>
+
+        <tr>
+            <td colspan="2"> Maria</td>
+            <td colspan="2"> Ramirez </td>
+            <td colspan="2"> Femenino  </td>
+            <td colspan="2"> 1003672982</td>
+            <td colspan="2"> Maestria en Gestion</td>
+            <td colspan="2"> Estudiante</td>
+            <td colspan="2"> MariaRam@gmail.com</td>
+
+
+
+
+        <tr>
+
+
+
+    </table>
+
+    <br />
+<center>
+    <button type="button" class="btn btn-primary">Eliminar</button>
+
+    <br/>
+
+    <a href="/Administrador/Login" <button type="button" class="btn btn-link">Cerrar sesion</button> </a>
+
+    <br/>
+</center>
+
