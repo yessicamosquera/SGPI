@@ -1,4 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using SGPI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<SGPI_BDContext>(options =>
+
+{
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
