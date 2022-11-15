@@ -1,4 +1,4 @@
-﻿
+﻿@model SGPI.Models.Usuario
 @{
     ViewData["Title"] = "OlvidarContrasena";
     Layout = "_LayoutSGPI";
@@ -9,12 +9,12 @@
     <center>
         <div class="form-group">
             <label for="usuariotxt">Usuario</label>
-            <input type="text" class="form-control col-sm-4" id="usuariotxt" requiered />
+            <input asp-for="IdUsuario" type="text" class="form-control col-sm-4" id="usuariotxt" requiered />
         </div>
 
         <div class="form-group">
             <label for="correoelectronico.txt">Correo Electronico</label>
-            <input type="correoelectronico" class="form-control col-sm-4" id="correoelectronicotxt" requiered />
+            <input asp-for="IdDoc" type="correoelectronico" class="form-control col-sm-4" id="correoelectronicotxt" requiered />
         </div>
 
         <a href="/Administrador/Login" <button type="button" class="btn btn-outline-danger" id="ingresarbtn type" submit>Enviar</button></a>

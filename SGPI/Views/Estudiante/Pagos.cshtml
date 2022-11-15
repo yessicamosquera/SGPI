@@ -1,13 +1,14 @@
-﻿
+﻿@model SGPI.Models.Pago
 @{
     ViewData["Title"] = "Pagos";
     Layout = "_LayoutSGPI";
 }
 
 <h1>Pagos</h1>
-<br/>
+
+<br />
 <center>
-<form action="" class="form-inline justify-content-center">
+    <form action="" class="form-inline justify-content-center">
         <ul class="nav nav-pills" class="form">
             <li class="nav-item">
                 <a class="nav-link " href="#">Actualizar</a>
@@ -15,31 +16,42 @@
             <li class="nav-item">
                 <a class="nav-link active " aria-current="page" href="/Coordinador/Pagos">Pagos</a>
             </li>
-         </ul>
+        </ul>
+    </form>
+</center>
+<form method="post">
+    <br />
+    <center>
+
+
+        <table class="table" border="5">
+            <tr>
+               
+                <td>Valor Pago</td>
+                <td>Fecha pago</td>
+                <td>opcion</td>
+
+            </tr>
+
+            <tr>
+             
+                <td><input asp-for="Valor" type="text" id="num" /></td>
+                <td><input asp-for="Fecha" type="date" id="num" /></td>
+                <td><input class="text-black" type="file" id="certificadotxt" required/>
+
+            </tr>
+        </table>
+        @if(ViewBag.mensaje != null){
+            <h1>@ViewBag.mensaje</h1>
+        }
+
+    </center>
+   
+    <br />
+    <center>
+        <a href="/Estudiante/Actualizar"><button type="submit" class="btn btn-primary">Modificar</button></a>
+    </center>
+    <center>
+        <a href="/Administrador/Login">Cerrar sesion</a>
+    </center>
 </form>
-</center>
-<br/>
-<br/>
-<center>
-<table border="5">
-    <tr>
-        <td>Numero de Pago </td>
-        <td> Valor Pagado </td>
-        <td> Fecha de Pago </td>
-        <td>opcion</td>
-
-    <tr>
-            <td><input type="text" id="num"/> </td>
-            <td><input type="text" id="num" /></td>
-            <td><input type="date" id="num" /></td>
-            <td> <button class="btn btn-link">Pago.pdf</button>
-            
-        </td>
-
-    <tr>
-</table>
-</center>
-<br/>
- <center>
-    <a href="/Estudiante/Actualizar" <button type="button" class="btn btn-primary">Modificar</button></a>
- </center>

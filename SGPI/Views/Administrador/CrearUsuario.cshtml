@@ -1,113 +1,83 @@
-﻿@{
+﻿@model SGPI.Models.Usuario
+
+@{
     ViewData["Title"] = "CrearUsuario";
     Layout = "_LayoutSGPI";
 }
 
 <h1>Crear Usuario</h1>
 <form action="" class="form-inline justify-content-center">
-<center>
-<ul class="nav nav-pills" class="form">
-    <li class="nav-item">
+    <center>
+        <br />
+        <ul class="nav nav-pills" class="form">
+            <li class="nav-item">
                 <a class="nav-link  active " aria-current="page" href="#">Crear Usuario</a>
-    </li>
-    <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/Administrador/BuscarUsuario">Buscar Usuario </a>
-    </li>
-    <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/Administrador/EliminarUsuario">Eliminar Usuario</a>
-    </li>
-    <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/Administrador/EditarUsuario">Editar Usuario</a>
-    </li>
-    <li class="nav-item">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/Administrador/Reportes">Reportes</a>
-    </li>
-</ul>
-</center>
+            </li>
+        </ul>
+    </center>
+
 </form>
+<br />
+<form method="post">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <label>Tipo de Documento</label>
+                @Html.DropDownList("IdDoc",new SelectList(ViewBag.Documento, "IdDoc","TipoDocumento"), new { @class = "form-control" })
 
-<br/>
+                <label>Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control col-sm-12" id="nombreusuariotxt" required />
 
-<div class="container text-center">
-    <div class="row align-items-start">
-        <div class="col">
-            <label>Tipo de Documento</label>
-            <br/>
-            <select class="form-select col-sm-12" aria-label="Default select example">
-                <option selected></option>
-                <option value="1">Cedula de Ciudadania</option>
-                <option value="2">Tarjeta de Extranjeria</option>
-                <option value="3">Ninguno</option>
-            </select>
+                <label>Apellidos</label>
+                <input asp-for="Apellido" type="text" class="form-control col-sm-12" id="apellidousuariotxt" required />
+            </div>
+            <div class="col">
+                <label>Numero de Documento</label>
+                <input asp-for="Documento"  type="text" class="form-control col-sm-12" id="numerodocumentousuariotxt" required />
 
-            <br/>
-            <label>Nombre</label>
-            <br/>
-            <input type="text" class="form-control col-sm-12" id="nombreusuariotxt" required />
-            <br/>
-            <label>Apellidos</label>
-            <br/>
+                <label>Correo Electronico</label>
+                <input asp-for="Email" type="text" class="form-control col-sm-12" id="correoelectronicousuariotxt" required />
 
-            <input type="text" class="form-control col-sm-12" id="apellidousuariotxt" required />
-        </div>
-        <div class="col">
-            <label>Numero de Documento</label>
+                <label>Rol</label>
+                @Html.DropDownList("IdRol",new SelectList(ViewBag.rol, "IdRol","TipoRol"), new { @class = "form-control" })
 
-            <input type="text" class="form-control col-sm-12" id="numerodocumentousuariotxt" required />
+            </div>
+            <div class="col">
+                <label>Genero</label>
+                @Html.DropDownList("IdGenero",new SelectList(ViewBag.genero, "IdGenero","Genero1"), new { @class = "form-control" })
+                
+                <label>Password</label>
+                <input asp-for="Password" type="text" class="form-control col-sm-12" id="Passwordusuariotxt" required />
 
-            <br/>
+            </div>
 
-            <label>Correo Electronico</label>
-            <input type="text" class="form-control col-sm-12" id="correoelectronicousuariotxt" required />
-            <label>Rol</label>
+            <div class="col">
+                <label>Programas</label>
+                @Html.DropDownList("IdPrograma",new SelectList(ViewBag.programa, "IdPrograma","Programa1"), new { @class = "form-control" })
 
-            <br/>
+                <br />
+                @if (ViewBag.mensaje != null)
+                {
+                    <div class="alert alert-succes" role="alert">@ViewBag.mensaje  </div>
 
-            <select class="form-select col-sm-12" aria-label="Default select example">
-                <option selected></option>
-                <option value="1">Administrador</option>
-                <option value="2">Coordinador</option>
-                <option value="3">Estudiante</option>
-            </select>
-            
-        </div>
-         <div class="col">
-            <label>Genero</label>
+                }
+                <button type="submit" class="btn btn-outline-danger" id="crearbtn type" submit>Crear Usuario </button>
 
-            <br/>
 
-            <select class="form-select col-sm-12" aria-label="Default select example">
-                <option selected></option>
-                <option value="1">Masculino</option>
-                <option value="2">Femenino</option>
-                <option value="3">Otros </option>
-            </select>
-
-            <br/>
-
-        </div>
-        <div class="col">
-            <label>Programas</label>
-            <br/>
-            <select class="form-select col-sm-12" aria-label="Default select example">
-                <option selected></option>
-                <option value="1">Maestria en Gestion. TI</option>
-                <option value="2">Especializacion. SI</option>
-                <option value="3">Maestria en Medio Amb </option>
-            </select>
-            <br/>
+                <a href="/Administrador/Login"<button type="button" class="btn btn-link">Cerrar sesion</button> </a>
+            </div>
         </div>
     </div>
-        <br/>
-       
-            <button type="button" class="btn btn-primary">Ingresar</button>
-       
-        <br/>
-
-    <a href="/Administrador/Login"<button type="button" class="btn btn-link">Cerrar sesion</button></a>
-       
- 
-    </div>
-</center>
-
-
+</form>
