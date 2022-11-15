@@ -33,5 +33,7 @@ namespace SGPI.Models
         public virtual ICollection<Entrevistum> Entrevista { get; set; }
         public virtual ICollection<Estudiante> Estudiantes { get; set; }
         public virtual ICollection<Programacion> Programacions { get; set; }
+        public bool Estado { get; internal set; }
+        public int IdPago { get; internal set; }
     }
 }

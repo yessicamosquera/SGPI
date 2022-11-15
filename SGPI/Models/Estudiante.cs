@@ -12,9 +12,9 @@ namespace SGPI.Models
         }
 
         public int IdEstudiante { get; set; }
-        public string Archivo { get; set; } = null!;
-        public int IdPago { get; set; }
-        public int IdUsuario { get; set; }
+        public string? Archivo { get; set; } = null!;
+        public int? IdPago { get; set; }
+        public int? IdUsuario { get; set; }
         public bool Egresado { get; set; }
 
         public virtual Pago IdPagoNavigation { get; set; } = null!;

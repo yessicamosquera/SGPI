@@ -6,12 +6,29 @@
 
 <h1>Actualizar</h1>
 
-
-<br />
 <form action="" class="form-inline justify-content-center">
+<ul class="navbar-nav">
+    <li class="nav-item">
+        @Html.ActionLink("Actualizar", "Actualizar", new {IdUsuario = Model.IdUsuario})
+    </li>
+  
+    <li class="nav-item">
+        @Html.ActionLink("Pagos", "Pagos", new {IdUsuario = Model.IdUsuario})
+    </li>
+</ul>
+<br />
+
 
     <ul class="nav nav-pills" class="form">
         <li class="nav-item">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    @Html.ActionLink("Actualizar", "Actualizar", new {IdUsuario = Model.IdUsuario})
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Pagos", "Pagos", new {IdUsuario = Model.IdUsuario})
+                </li>
+            </ul>
             <a class="nav-link  active " aria-current="page" href="#">Actualizar</a>
         </li>
         <li class="nav-item">

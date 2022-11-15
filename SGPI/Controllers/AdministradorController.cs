@@ -5,7 +5,9 @@ namespace SGPI.Controllers
 {
     public class AdministradorController : Controller
     {
+
         SGPI_BDContext context = new SGPI_BDContext();
+
 
         public IActionResult Login()
         {
@@ -123,9 +125,7 @@ namespace SGPI.Controllers
 
         {
             Usuario us = new Usuario();
-
-
-            return View();
+            return View(us);
         }
         [HttpPost]
         public IActionResult BuscarUsuario(Usuario usuario)
@@ -144,6 +144,8 @@ namespace SGPI.Controllers
 
             return View();
         }
+        
+        
         public IActionResult Reportes()
         {
             ViewBag.Documento = context.Documentos.ToList();

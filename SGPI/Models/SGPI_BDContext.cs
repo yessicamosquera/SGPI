@@ -28,6 +28,7 @@ namespace SGPI.Models
         public virtual DbSet<Rol> Rols { get; set; } = null!;
         public virtual DbSet<TipoHomologacion> TipoHomologacions { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
+        public int? IdUsuario { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

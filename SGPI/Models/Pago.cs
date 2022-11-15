@@ -13,7 +13,7 @@ namespace SGPI.Models
         public int IdPago { get; set; }
         public DateTime Fecha { get; set; }
         public int Valor { get; set; }
-        public bool Estado { get; set; }
+        public bool? Estado { get; set; }
 
         public virtual ICollection<Estudiante> Estudiantes { get; set; }
     }

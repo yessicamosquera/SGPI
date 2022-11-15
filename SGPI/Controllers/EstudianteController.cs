@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using SGPI.Models;
 
 namespace SGPI.Controllers
@@ -7,8 +9,7 @@ namespace SGPI.Controllers
 
     {
         SGPI_BDContext context = new SGPI_BDContext();
-
-        public List<Pago> ListPago { get; private set; }
+       
 
         public IActionResult Actualizar(int? IdUsuario)
         {
@@ -24,13 +25,14 @@ namespace SGPI.Controllers
             }
             else
             {
-                return Redirect("/Estudiante/Actualizar");
+                return Redirect("/Estudiante/Actualizar?IdUsuario");
             }
 
         }
         [HttpPost]
         public IActionResult Actualizar(Usuario usuario)
         {
+            
             context.Update(usuario);
             context.SaveChanges();
             ViewBag.mensaje = "Estudiante modificado exitosamente";
@@ -43,21 +45,30 @@ namespace SGPI.Controllers
             return View(usuario);
         }
 
-        public IActionResult Pagos(int? IdUsuario)
+        public IActionResult Pagos(int?IdUsuario)
         {
             Usuario usuario = new Usuario();
             var usr = context.Usuarios.Where(consulta => consulta.IdUsuario == IdUsuario).FirstOrDefault();
-
-
+            ViewBag.Idusuario = usr.IdUsuario;
             return View();
         }
 
         [HttpPost]
-        public IActionResult Pagos(Pago pago)
+        public IActionResult Pagos(int? IdUsuario, Pago usuario)
         {
-            pago.Estado = true;
-            ViewBag.mensaje = "Pago enviado";
-            context.Pagos.Add(pago);
+            Usuario usr = context.Usuarios.Find(IdUsuario);
+
+            usuario.Estado = true;
+            context.Pagos.Add(usuario);
+            context.SaveChanges();
+            ViewBag.mensaje = "Pago Ingresado";
+
+            Estudiante est = new Estudiante();
+            est.Archivo = "";
+            est.IdUsuario = usr.IdUsuario;
+            est.IdPago = usuario.IdPago;
+            est.Egresado = true;
+            context.Estudiantes.Add(est);
             context.SaveChanges();
             return View();
 
